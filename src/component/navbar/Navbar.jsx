@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import './Navbar.scss';
+import { useSelector } from 'react-redux';
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import { Link } from 'react-router-dom';
-const Navbar = ({ data }) => {
-    console.log("nam", data)
+const Navbar = () => {
+    const carts = useSelector((state) => state.reducer.cart);
     return (
         <nav>
             <div className="logo">
@@ -14,7 +15,7 @@ const Navbar = ({ data }) => {
                 <Link to="/additem">Add Item</Link>
             </div>
             <div className="cart">
-                <span className="cart-count">{data.length}</span>
+                <span className="cart-count">{carts.length}</span>
                 <Link to="/cart"><AiOutlineShoppingCart /></Link>
 
             </div>

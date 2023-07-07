@@ -9,6 +9,7 @@ export default function Home({ onData }) {
     return (
         <div>
             <Carditem onData={handleData} />
+
         </div>
     );
 }

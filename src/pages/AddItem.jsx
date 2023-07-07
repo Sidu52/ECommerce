@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import './AddItem.scss';
+import { useDispatch } from 'react-redux';
+import { addextraitems } from '../store/store';
 
 export default function AddItemForm() {
+
     const [form, setForm] = useState({ name: "", description: "", price: "", stars: "", imgurl: "" });
+    const dispatch = useDispatch();
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
         // Validation
         if (!form.name || !form.description || !form.price || !form.stars || !form.imgurl) {
             toast.error('Please fill in all fields');
@@ -25,7 +29,7 @@ export default function AddItemForm() {
 
         // Pass the new item to the parent component
         // onAddItem(newItem);
-
+        dispatch(addextraitems(form));
         // Clear form fields
         setForm({ name: "", description: "", price: "", stars: "", imgurl: "" })
         toast.success("Item Add Successful")
