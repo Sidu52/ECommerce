@@ -92,13 +92,14 @@ export default function Carditem() {
                                         {item.price}
                                     </p>
                                 </span>
-
                                 <p
                                     contentEditable={edit}
                                     suppressContentEditableWarning
                                     onBlur={(e) => setForm({ title: item.title, description: item.description, price: item.price, stars: e.target.innerText, imgurl: item.imgurl })}
                                 >
-                                    Stars: {item.stars}
+                                    {Array.from({ length: item.stars }, (_, index) => (
+                                        <span key={index} className="star" style={{ color: "#dcdc30", fontSize: "2rem" }}>&#9733;</span>
+                                    ))}
                                 </p>
                             </div>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>

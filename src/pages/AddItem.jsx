@@ -17,18 +17,6 @@ export default function AddItemForm() {
             toast.error('Please fill in all fields');
             return;
         }
-
-        // Create new item object
-        const newItem = {
-            price: form.price,
-            description: form.description,
-            price: form.price,
-            stars: form.stars,
-            imgurl: form.imgurl,
-        };
-
-        // Pass the new item to the parent component
-        // onAddItem(newItem);
         dispatch(addextraitems(form));
         // Clear form fields
         setForm({ name: "", description: "", price: "", stars: "", imgurl: "" })
